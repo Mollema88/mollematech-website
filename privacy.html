@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacybeleid — Mollema Tech &amp; UrenBaas</title>
-  <meta name="description" content="Privacybeleid van Mollema Tech en UrenBaas. AVG/GDPR, lokale opslag, Google OAuth en Drive-back-up." />
+  <meta name="description" content="Privacybeleid van Mollema Tech en UrenBaas. AVG/GDPR, lokale opslag, Google OAuth/Drive, Play Billing." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -55,9 +55,9 @@
     <h1 class="mt-3 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
       Privacybeleid Mollema Tech &amp; UrenBaas
     </h1>
-    <p class="mt-4 text-sm text-zinc-500">Laatst bijgewerkt: 7 augustus 2026</p>
+    <p class="mt-4 text-sm text-zinc-500">Laatst bijgewerkt: 7 augustus 2026 · App UrenBaas</p>
     <p class="mt-6 leading-relaxed">
-      Dit privacybeleid beschrijft hoe de mobiele app <strong class="text-white">UrenBaas</strong> (“de App”), ontwikkeld door <strong class="text-white">Mollema Tech</strong>, omgaat met gegevens. Het is bedoeld voor transparantie richting Google Play, Google Cloud OAuth en de AVG/GDPR.
+      Dit beleid beschrijft hoe <strong class="text-white">UrenBaas</strong>, ontwikkeld door <strong class="text-white">Mollema Tech</strong>, omgaat met gegevens — voor Google Play, Google Cloud OAuth en de AVG/GDPR.
     </p>
 
     <aside class="mt-10 rounded-2xl border-2 border-ember bg-ink-card p-6 sm:p-8" role="note" aria-label="Google Integraties">
@@ -68,15 +68,15 @@
         <div>
           <h2 class="font-display text-xl font-semibold text-white">Google-integraties</h2>
           <p class="mt-3 leading-relaxed">
-            UrenBaas gebruikt <strong class="text-white">OAuth 2.0</strong> voor veilig inloggen bij Google, uitsluitend wanneer je de optionele Google Drive-back-up inschakelt.
+            <strong class="text-white">OAuth 2.0</strong> wordt alleen gebruikt wanneer je de optionele Google Drive-back-up inschakelt.
           </p>
           <p class="mt-3 leading-relaxed">
-            De <strong class="text-white">Google Drive API</strong> wordt alleen gebruikt om app-back-ups op te slaan en te herstellen in <strong class="text-white">jouw eigen Google Drive</strong>. Mollema Tech heeft geen centrale kopie van je Drive-inhoud en verkoopt of deelt deze gegevens niet.
+            Scope: <strong class="text-white">drive.file</strong> — alleen bestanden die de app zelf aanmaakt/opent (map o.a. “UrenBaas Backup”). Back-ups gaan naar <strong class="text-white">jouw</strong> Drive. Mollema Tech heeft geen centrale kopie en verkoopt of deelt deze gegevens niet.
           </p>
           <ul class="mt-4 list-disc space-y-2 pl-5">
-            <li>Geen Google-login vereist voor de kernfuncties</li>
-            <li>Toegangstokens worden lokaal op je apparaat bewaard</li>
-            <li>Verwerking door Google valt onder het privacybeleid van Google</li>
+            <li>Geen Google-login voor de kernfuncties</li>
+            <li>Tokens lokaal op je apparaat</li>
+            <li>Google Play Billing apart bij een eenmalige unlock (betaling via Google)</li>
           </ul>
         </div>
       </div>
@@ -96,88 +96,90 @@
       <section>
         <h2 class="font-display text-2xl font-semibold text-white">2. Wat is UrenBaas?</h2>
         <p class="mt-3 leading-relaxed">
-          UrenBaas is een <strong class="text-white">offline-first</strong> app voor werktijd/uren, klanten, projecten, materialen en export (PDF en CSV). Er is geen eigen UrenBaas-account en geen centrale server waar jouw urenregistraties standaard naartoe gaan.
+          Offline-first app voor uren, klanten, projecten, materialen, facturen en export (PDF en CSV). Geen eigen UrenBaas-account en geen centrale server waar jouw uren standaard naartoe gaan.
         </p>
       </section>
 
       <section>
-        <h2 class="font-display text-2xl font-semibold text-white">3. Welke gegevens worden verwerkt?</h2>
-        <h3 class="mt-5 text-sm font-semibold uppercase tracking-wide text-ember">3.1 Gegevens die jij invoert (lokaal)</h3>
-        <p class="mt-2 leading-relaxed">Opgeslagen in een lokale database (SQLite) op je apparaat, onder meer:</p>
-        <ul class="mt-3 list-disc space-y-2 pl-5">
-          <li>Tijdregistraties (start/eindtijd, duur, pauze, omschrijving, tarief, betaalstatus)</li>
-          <li>Klanten- en projectgegevens (voor zover je die invult)</li>
-          <li>Materiaalregels (omschrijving, hoeveelheid, prijs)</li>
-          <li>Factuur- en bedrijfsgegevens voor export (indien ingevuld)</li>
-          <li>Voorkeuren (thema, afronding, back-upinstellingen)</li>
+        <h2 class="font-display text-2xl font-semibold text-white">3. Welke gegevens?</h2>
+        <h3 class="mt-5 text-sm font-semibold uppercase tracking-wide text-ember">3.1 Lokaal (SQLite)</h3>
+        <ul class="mt-2 list-disc space-y-2 pl-5">
+          <li>Tijdregistraties, klanten, projecten, materialen, facturen</li>
+          <li>Bedrijfsgegevens voor export (o.a. naam, adres, KvK, BTW, IBAN, logo)</li>
+          <li>Voorkeuren (thema, afronding, back-up)</li>
+          <li>Proef-/aankoopstatus (lokaal bijgehouden)</li>
         </ul>
-        <p class="mt-3 leading-relaxed"><strong class="text-white">Belangrijk:</strong> deze gegevens gaan niet naar een server van Mollema Tech, tenzij je bewust een externe functie gebruikt (zoals Drive-back-up of delen).</p>
+        <p class="mt-3 leading-relaxed"><strong class="text-white">Belangrijk:</strong> niet naar Mollema Tech, tenzij jij Drive-back-up, delen of Play-aankoop gebruikt.</p>
 
         <h3 class="mt-6 text-sm font-semibold uppercase tracking-wide text-ember">3.2 AsyncStorage</h3>
         <ul class="mt-2 list-disc space-y-2 pl-5">
-          <li>Timerstatus</li>
-          <li>Korte tekstgeschiedenis</li>
-          <li>Exportvoorkeuren</li>
+          <li>Timerstatus, tekstgeschiedenis, exportvoorkeuren</li>
           <li>Google-tokens (alleen bij Drive-back-up)</li>
         </ul>
 
-        <h3 class="mt-6 text-sm font-semibold uppercase tracking-wide text-ember">3.3 Bestanden die je kiest</h3>
+        <h3 class="mt-6 text-sm font-semibold uppercase tracking-wide text-ember">3.3 Bestanden die jij kiest</h3>
         <ul class="mt-2 list-disc space-y-2 pl-5">
-          <li>Bedrijfslogo voor PDF-export (lokaal)</li>
-          <li>Lokale back-upbestanden die jij kiest</li>
+          <li>Bedrijfslogo (lokaal)</li>
+          <li>Lokale back-up / herstel via systeemkiezer</li>
         </ul>
       </section>
 
       <section>
-        <h2 class="font-display text-2xl font-semibold text-white">4. Geen verkoop van persoonsgegevens</h2>
+        <h2 class="font-display text-2xl font-semibold text-white">4. Geen verkoop / ads / analytics</h2>
         <p class="mt-3 leading-relaxed">
-          UrenBaas verkoopt geen persoonsgegevens en gebruikt geen advertentieprofielen. Er is geen ingebouwde analytics of crash-reporting naar Mollema Tech in de huidige app.
+          Geen verkoop van persoonsgegevens, geen advertentie-SDK’s, geen analytics of crash-reporting naar Mollema Tech.
         </p>
       </section>
 
       <section>
-        <h2 class="font-display text-2xl font-semibold text-white">5. Internetverbinding</h2>
+        <h2 class="font-display text-2xl font-semibold text-white">5. Internet</h2>
         <ul class="mt-3 list-disc space-y-2 pl-5">
-          <li><strong class="text-white">Optionele Google Drive-back-up</strong> — naar jouw Google-account</li>
-          <li><strong class="text-white">Google-aanmelding (OAuth)</strong> — alleen voor die Drive-functie</li>
-          <li><strong class="text-white">Expo Updates (OTA)</strong> — app-code, geen urenbestanden</li>
-          <li><strong class="text-white">Delen van exports</strong> — via apps die jij kiest</li>
-          <li><strong class="text-white">Google Play Billing</strong> — bij aankoop van de eenmalige unlock (via Google Play)</li>
+          <li><strong class="text-white">Google Drive-back-up</strong> (optioneel) — jouw Drive</li>
+          <li><strong class="text-white">OAuth 2.0 / drive.file</strong> — alleen voor die back-up</li>
+          <li><strong class="text-white">Expo Updates</strong> — app-code</li>
+          <li><strong class="text-white">Google Play Billing</strong> — eenmalige unlock</li>
+          <li><strong class="text-white">Delen</strong> — via apps die jij kiest</li>
         </ul>
       </section>
 
       <section>
-        <h2 class="font-display text-2xl font-semibold text-white">6. Aankopen (Google Play)</h2>
+        <h2 class="font-display text-2xl font-semibold text-white">6. Aankopen &amp; proefperiode</h2>
         <p class="mt-3 leading-relaxed">
-          UrenBaas kan een proefperiode bieden en een eenmalige (lifetime) unlock via Google Play Billing. Betaling en aankoopgegevens worden door <strong class="text-white">Google Play</strong> verwerkt. Mollema Tech ontvangt geen creditcardgegevens. Aankoopstatus kan lokaal op het apparaat worden bijgehouden.
+          Beperkte proefperiode (duur zoals in de app). Daarna of tussentijds: <strong class="text-white">eenmalige lifetime-unlock</strong> via Google Play Billing. Google verwerkt de betaling; Mollema Tech krijgt geen creditcardgegevens. Entitlement wordt lokaal bewaard (en zit in een volledige database-back-up).
         </p>
       </section>
 
       <section>
         <h2 class="font-display text-2xl font-semibold text-white">7. Notificaties</h2>
+        <p class="mt-3 leading-relaxed">Lokale meldingen (geen UrenBaas-pushserver):</p>
+        <ul class="mt-3 list-disc space-y-2 pl-5">
+          <li><strong class="text-white">Timer</strong> — kan namen/omschrijving tonen (mogelijk op lockscreen)</li>
+          <li><strong class="text-white">Back-upherinnering</strong> (indien aan)</li>
+          <li><strong class="text-white">Proefperiode-herinnering</strong></li>
+        </ul>
+        <p class="mt-3 leading-relaxed">Toestemming voor meldingen kan worden gevraagd. Exacte alarmen kunnen worden gebruikt om herinneringen te plannen.</p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-2xl font-semibold text-white">8. Expo Updates</h2>
         <p class="mt-3 leading-relaxed">
-          Lokale meldingen (bijv. lopende timer of back-up-/trialherinnering). Geen push van een UrenBaas-server.
+          JavaScript-bundel-updates via Expo Updates. Geen export van jouw uren naar Expo. Zie het privacybeleid van Expo.
         </p>
       </section>
 
       <section>
-        <h2 class="font-display text-2xl font-semibold text-white">8. Expo (updates)</h2>
-        <p class="mt-3 leading-relaxed">
-          De app is gebouwd met Expo. Updates van de JavaScript-bundel kunnen via Expo Updates worden geladen. Zie het privacybeleid van Expo.
-        </p>
-      </section>
-
-      <section>
-        <h2 class="font-display text-2xl font-semibold text-white">9. Delen en exporteren</h2>
-        <p class="mt-3 leading-relaxed">
-          PDF/CSV en back-upbestanden worden op je apparaat gemaakt en via systeemdelen doorgegeven aan apps of opslag die jij kiest. Mollema Tech heeft daar geen toegang toe.
-        </p>
+        <h2 class="font-display text-2xl font-semibold text-white">9. Export &amp; back-ups</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5">
+          <li><strong class="text-white">PDF</strong> en <strong class="text-white">CSV</strong> (te openen in Excel/boekhoudsoftware) — lokaal, daarna delen naar keuze</li>
+          <li><strong class="text-white">.urenbaas_backup</strong> = volledige lokale database (inclusief bedrijfsgegevens en proef-/aankoopstatus)</li>
+        </ul>
+        <p class="mt-3 leading-relaxed">Mollema Tech heeft geen toegang tot die bestanden, tenzij jij ze zelf deelt.</p>
       </section>
 
       <section>
         <h2 class="font-display text-2xl font-semibold text-white">10. Bewaartermijn</h2>
         <ul class="mt-3 list-disc space-y-2 pl-5">
-          <li>Lokaal tot jij gegevens wist of de database reset</li>
+          <li>Lokaal tot wissen of database-reset</li>
           <li>Drive-back-ups tot jij ze in Drive verwijdert</li>
           <li>App verwijderen wist lokale data meestal volgens het OS</li>
         </ul>
@@ -186,36 +188,32 @@
       <section>
         <h2 class="font-display text-2xl font-semibold text-white">11. Beveiliging</h2>
         <p class="mt-3 leading-relaxed">
-          Data staat lokaal; beveiliging hangt af van je toestel. Back-upbestanden zijn krachtig — bewaar ze veilig.
+          Lokaal op je toestel. Back-ups zijn krachtig — bewaar ze veilig.
         </p>
       </section>
 
       <section>
         <h2 class="font-display text-2xl font-semibold text-white">12. Rechten (AVG)</h2>
         <ul class="mt-3 list-disc space-y-2 pl-5">
-          <li>Inzage (in de app en via exports)</li>
-          <li>Wissing (verwijderen of database resetten)</li>
-          <li>Bezwaar en klacht bij een toezichthouder</li>
+          <li>Inzage, wissing, bezwaar, klacht bij toezichthouder</li>
         </ul>
-        <p class="mt-3 leading-relaxed">Zonder centraal account vervullen export en back-up de rol van gegevensoverdraagbaarheid.</p>
+        <p class="mt-3 leading-relaxed">Zonder centraal account: export en back-up voor overdraagbaarheid.</p>
       </section>
 
       <section>
         <h2 class="font-display text-2xl font-semibold text-white">13. Kinderen</h2>
         <p class="mt-3 leading-relaxed">
-          Niet gericht op kinderen onder 16. Onder de geldende minimumleeftijd alleen met toestemming van ouder/voogd.
+          Niet gericht op kinderen onder 16. Onder de minimumleeftijd alleen met toestemming van ouder/voogd.
         </p>
       </section>
 
       <section>
         <h2 class="font-display text-2xl font-semibold text-white">14. Wijzigingen</h2>
-        <p class="mt-3 leading-relaxed">
-          Dit beleid kan worden bijgewerkt; de datum bovenaan wordt dan vernieuwd.
-        </p>
+        <p class="mt-3 leading-relaxed">Datum bovenaan wordt bijgewerkt bij wijzigingen.</p>
       </section>
 
       <p class="border-t border-ink-line pt-8 text-sm text-zinc-600">
-        Gebaseerd op de UrenBaas-app (SQLite, AsyncStorage, notificaties, Google Drive, Expo Updates, Play Billing, export). Geen juridisch advies.
+        Gebaseerd op de UrenBaas-app (SQLite, AsyncStorage, notificaties, Google Drive drive.file, Expo Updates, Play Billing, PDF/CSV). Geen juridisch advies.
       </p>
     </div>
 
