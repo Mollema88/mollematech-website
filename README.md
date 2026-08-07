@@ -24,12 +24,27 @@ Workflow: `.github/workflows/deploy-website.yml` publiceert de map `website/` bi
 
 ### DNS (domeinprovider)
 
-Voor apex-domein `mollematech.nl` bij GitHub Pages typisch:
+Repo: https://github.com/Mollema88/mollematech-website  
+Pages is al gezet op custom domain `mollematech.nl` (CNAME-bestand aanwezig).
 
-- **A**-records naar GitHub Pages IPs, of
-- **CNAME** `www` → `jouw-user.github.io` + redirect
+Bij je domeinprovider voor **mollematech.nl** (apex) deze **A**-records:
 
-In de GitHub-repo: **Settings → Pages → Custom domain** → `mollematech.nl` → HTTPS aanzetten.
+| Type | Naam | Waarde |
+|------|------|--------|
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+
+Optioneel **www**:
+
+| Type | Naam | Waarde |
+|------|------|--------|
+| CNAME | `www` | `Mollema88.github.io` |
+
+Daarna in GitHub: **Settings → Pages** → wacht tot domain verified → **Enforce HTTPS** aanzetten.
+
+Tijdelijk zonder DNS: de site draait ook via GitHub Pages Actions; zodra DNS live is: `https://mollematech.nl/`.
 
 ### Google OAuth / Play
 
