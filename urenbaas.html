@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UrenBaas — Registratie-app voor professionals | Mollema Tech</title>
+  <meta name="description" content="UrenBaas: tijd- en materiaalbeheer zonder onzin. Offline-first urenregistratie met optionele Google Drive back-up." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            steel: {
+              950: '#0a0a0a',
+              900: '#111111',
+              800: '#1f1f1f',
+              700: '#2a2a2a',
+            },
+            olive: {
+              DEFAULT: '#6b8e23',
+              light: '#8fbc3a',
+              dark: '#556b1c',
+            },
+          },
+          fontFamily: {
+            display: ['Oswald', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(10, 10, 10, 0.9), rgba(10, 10, 10, 0.94)),
+        linear-gradient(90deg, rgba(107, 142, 35, 0.07) 1px, transparent 1px),
+        linear-gradient(rgba(107, 142, 35, 0.07) 1px, transparent 1px);
+      background-size: auto, 40px 40px, 40px 40px;
+    }
+    .reveal { animation: rise 0.7s ease-out both; }
+    .reveal-delay { animation: rise 0.7s ease-out 0.15s both; }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-steel-950 text-gray-300 font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-gray-800 bg-steel-950/95 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
+      <a href="index.html" class="group">
+        <span class="font-display text-xl tracking-widest text-white uppercase sm:text-2xl">Mollema Tech</span>
+        <span class="mt-1 block h-0.5 w-16 bg-olive transition-all group-hover:w-24"></span>
+      </a>
+      <nav class="hidden items-center gap-8 font-display text-sm tracking-wider uppercase md:flex">
+        <a href="index.html" class="text-gray-400 transition hover:text-white">Home</a>
+        <a href="urenbaas.html" class="text-olive">UrenBaas</a>
+        <a href="index.html#diensten" class="text-gray-400 transition hover:text-white">Diensten</a>
+        <a href="index.html#contact" class="text-gray-400 transition hover:text-white">Contact</a>
+      </nav>
+      <button id="menu-btn" type="button" class="border border-gray-700 p-2 text-olive md:hidden" aria-label="Menu">
+        <i data-lucide="menu" class="h-5 w-5"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden border-t border-gray-800 bg-steel-900 md:hidden">
+      <nav class="flex flex-col gap-1 px-4 py-3 font-display text-sm tracking-wider uppercase">
+        <a href="index.html" class="py-2 text-gray-300">Home</a>
+        <a href="urenbaas.html" class="py-2 text-olive">UrenBaas</a>
+        <a href="index.html#diensten" class="py-2 text-gray-300">Diensten</a>
+        <a href="index.html#contact" class="py-2 text-gray-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-grid border-b border-gray-800">
+    <div class="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:py-28">
+      <div>
+        <p class="reveal font-display text-sm tracking-[0.25em] text-olive uppercase">App · Mollema Tech</p>
+        <h1 class="reveal-delay mt-4 font-display text-4xl leading-tight tracking-wide text-white uppercase sm:text-5xl">
+          UrenBaas: De slimste registratie-app voor professionals
+        </h1>
+        <p class="mt-5 text-lg text-gray-400">Tijd- en materiaalbeheer zonder onzin.</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="#play" id="play" class="inline-flex items-center gap-2 border-2 border-olive bg-olive px-6 py-3 font-display text-sm tracking-widest text-steel-950 uppercase transition hover:bg-olive-light hover:border-olive-light">
+            <i data-lucide="smartphone" class="h-4 w-4"></i>
+            Bekijk in Google Play
+          </a>
+          <a href="privacy.html" class="inline-flex items-center gap-2 border border-gray-700 px-6 py-3 font-display text-sm tracking-widest text-gray-300 uppercase transition hover:border-olive hover:text-olive">
+            Privacybeleid
+          </a>
+        </div>
+        <p class="mt-3 text-xs text-gray-600">Store-link volgt zodra UrenBaas live staat op Google Play.</p>
+      </div>
+
+      <div class="bg-gray-800 border border-gray-700 h-96 rounded flex items-center justify-center">
+        <div class="text-center">
+          <i data-lucide="tablet-smartphone" class="mx-auto h-12 w-12 text-olive"></i>
+          <p class="mt-4 font-display text-sm tracking-widest text-gray-500 uppercase">App Screenshot</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="border-b border-gray-800">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div class="mb-10 border-b border-gray-800 pb-4">
+        <p class="font-display text-xs tracking-[0.2em] text-olive uppercase">Functies</p>
+        <h2 class="mt-2 font-display text-3xl tracking-wide text-white uppercase sm:text-4xl">Gebouwd voor de werkvloer</h2>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2">
+        <article class="border border-gray-700 bg-gray-800 p-6 sm:p-8">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center border border-olive/40 bg-steel-950">
+            <i data-lucide="timer" class="h-6 w-6 text-olive"></i>
+          </div>
+          <h3 class="font-display text-xl tracking-wide text-white uppercase">Tijd &amp; Uren</h3>
+          <p class="mt-3 text-gray-400">Snel en effectief uren schrijven. Timer, handmatige registratie en overzicht per klant of project.</p>
+        </article>
+
+        <article class="border border-gray-700 bg-gray-800 p-6 sm:p-8">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center border border-olive/40 bg-steel-950">
+            <i data-lucide="package" class="h-6 w-6 text-olive"></i>
+          </div>
+          <h3 class="font-display text-xl tracking-wide text-white uppercase">Materiaal</h3>
+          <p class="mt-3 text-gray-400">Direct verbruikte materialen koppelen aan je registraties — hoeveelheid, prijs en omschrijving bij de hand.</p>
+        </article>
+
+        <article class="border border-gray-700 bg-gray-800 p-6 sm:p-8">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center border border-olive/40 bg-steel-950">
+            <i data-lucide="file-spreadsheet" class="h-6 w-6 text-olive"></i>
+          </div>
+          <h3 class="font-display text-xl tracking-wide text-white uppercase">Rapportages</h3>
+          <p class="mt-3 text-gray-400">Met 1 klik een strak overzicht. Exporteer naar PDF of Excel en deel via de apps die jij gebruikt.</p>
+        </article>
+
+        <article class="border border-gray-700 bg-gray-800 p-6 sm:p-8">
+          <div class="mb-4 flex h-12 w-12 items-center justify-center border border-olive/40 bg-steel-950">
+            <i data-lucide="hard-drive" class="h-6 w-6 text-olive"></i>
+          </div>
+          <h3 class="font-display text-xl tracking-wide text-white uppercase">Drive Back-up</h3>
+          <p class="mt-3 text-gray-400">Veilige automatische back-ups in je eigen Google Drive. Jouw data blijft van jou — geen centrale UrenBaas-server.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offline note -->
+  <section class="border-b border-gray-800 bg-steel-900">
+    <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+      <div class="flex flex-col gap-6 border border-gray-700 bg-steel-950 p-6 sm:flex-row sm:items-center sm:p-8">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center border border-olive/40">
+          <i data-lucide="wifi-off" class="h-6 w-6 text-olive"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-xl tracking-wide text-white uppercase">Offline-first</h3>
+          <p class="mt-2 text-gray-400">De kern van UrenBaas werkt zonder internet. Online alleen nodig voor optionele Google Drive-back-up, app-updates of het delen van exports.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-steel-950">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <div>
+        <p class="font-display text-sm tracking-widest text-white uppercase">UrenBaas · Mollema Tech</p>
+        <p class="mt-1 text-sm text-gray-500">Nederland · Offline-first urenregistratie</p>
+      </div>
+      <div class="flex flex-wrap gap-6 text-sm">
+        <a href="index.html" class="text-gray-400 hover:text-olive">Home</a>
+        <a href="privacy.html" class="text-gray-400 hover:text-olive">Privacybeleid</a>
+        <a href="mailto:mollematech@gmail.com" class="text-gray-400 hover:text-olive">Contact</a>
+      </div>
+    </div>
+    <div class="border-t border-gray-800">
+      <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-gray-600 sm:px-6">&copy; <span id="year"></span> Mollema Tech. Alle rechten voorbehouden.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
+</body>
+</html>
