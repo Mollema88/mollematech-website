@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UrenBaas â€” Uren, materialen &amp; PDF-facturen voor professionals</title>
+  <meta name="description" content="UrenBaas: offline urenregistratie voor Android. Timer, klanten, projecten, materialen, PDF- en CSV-export, licht/donker thema, lokale of Google Drive-back-up. 30 dagen proberen, daarna eenmalig ontgrendelen â€” zonder ads." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ub: {
+              bg: '#0F0F0F',
+              card: '#1A1A1A',
+              elevated: '#242424',
+              line: '#2E2E2E',
+              orange: '#E8890C',
+              orangeSoft: '#F5A623',
+              muted: '#A0A0A0',
+            },
+          },
+          fontFamily: {
+            display: ['Rajdhani', 'sans-serif'],
+            sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .waves {
+      background-color: #0F0F0F;
+      background-image:
+        radial-gradient(ellipse 70% 45% at 50% -5%, rgba(232, 137, 12, 0.22), transparent 60%),
+        url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 80 Q 200 20 400 80 T 800 80 T 1200 80' fill='none' stroke='%23E8890C' stroke-opacity='0.12' stroke-width='1.5'/%3E%3Cpath d='M0 120 Q 200 60 400 120 T 800 120 T 1200 120' fill='none' stroke='%23E8890C' stroke-opacity='0.08' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat, no-repeat;
+      background-size: auto, 1200px 200px;
+      background-position: center, center top 40%;
+    }
+    .glow-ring {
+      box-shadow: 0 0 0 1px rgba(232, 137, 12, 0.25), 0 0 40px rgba(232, 137, 12, 0.15);
+    }
+    .fade-up { animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .fade-up-2 { animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-ub-bg text-ub-muted font-sans antialiased">
+  <header class="sticky top-0 z-50 border-b border-ub-line/80 bg-ub-bg/85 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="/" class="text-sm font-medium text-ub-muted transition hover:text-white">â† Mollema Tech</a>
+      <a href="/urenbaas/" class="flex items-center gap-2">
+        <img src="/assets/urenbaas-logo.png" alt="" class="h-8 w-8 rounded-lg object-contain" width="32" height="32" />
+        <span class="font-display text-xl font-semibold tracking-wide" aria-label="UrenBaas"><span class="text-ub-orange" aria-hidden="true">Uren</span><span class="text-white" aria-hidden="true">Baas</span></span>
+      </a>
+      <nav class="hidden items-center gap-6 text-sm font-medium md:flex">
+        <a href="#functies" class="transition hover:text-white">Functies</a>
+        <a href="#voor-wie" class="transition hover:text-white">Voor wie</a>
+        <a href="#prijs" class="transition hover:text-white">Prijs</a>
+        <a href="https://play.google.com/store/apps/details?id=nl.urenbaas" target="_blank" rel="noopener noreferrer" class="rounded-full bg-ub-orange px-4 py-1.5 font-semibold text-ub-bg hover:bg-ub-orangeSoft">Google Play</a>
+      </nav>
+      <button id="menu-btn" type="button" class="rounded-lg border border-ub-line p-2 text-ub-orange md:hidden" aria-label="Menu">
+        <i data-lucide="menu" class="h-5 w-5"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="hidden border-t border-ub-line bg-ub-card md:hidden">
+      <nav class="flex flex-col gap-1 px-4 py-3 text-sm font-medium">
+        <a href="#functies" class="menu-link py-2">Functies</a>
+        <a href="#voor-wie" class="menu-link py-2">Voor wie</a>
+        <a href="#prijs" class="menu-link py-2">Prijs</a>
+        <a href="/privacy/" class="py-2">Privacy</a>
+        <a href="https://play.google.com/store/apps/details?id=nl.urenbaas" target="_blank" rel="noopener noreferrer" class="menu-link py-2 text-ub-orange">Google Play</a>
+        <a href="/" class="py-2">Mollema Tech</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="waves border-b border-ub-line">
+    <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:py-24">
+      <div>
+        <div class="fade-up mb-6 flex items-center gap-3">
+          <img src="/assets/urenbaas-logo.png" alt="UrenBaas" class="h-14 w-14 rounded-2xl object-contain glow-ring" width="56" height="56" />
+          <span class="font-display text-3xl font-bold tracking-wide" aria-label="UrenBaas"><span class="text-ub-orange" aria-hidden="true">Uren</span><span class="text-white" aria-hidden="true">Baas</span></span>
+        </div>
+        <p class="fade-up text-xs font-semibold uppercase tracking-[0.2em] text-ub-orange">Android Â· Offline-first Â· Geen ads</p>
+        <h1 class="fade-up-2 mt-3 font-display text-4xl font-bold uppercase leading-[1.05] tracking-wide text-white sm:text-5xl">
+          UrenBaas: Registreer je uren in seconden.
+        </h1>
+        <p class="mt-5 text-lg leading-relaxed text-ub-muted">
+          De urenapp voor professionals die geen zin hebben in gedoe. Timer, klanten, materialen, PDF-facturen en overzicht â€” alles op je telefoon, ook zonder bereik.
+        </p>
+        <ul class="mt-6 space-y-2 text-sm text-ub-muted">
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-ub-orange"></i> 30 dagen uitproberen</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-ub-orange"></i> Daarna eenmalig ontgrendelen â€” geen abonnement</li>
+          <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 shrink-0 text-ub-orange"></i> Jouw data blijft van jou (lokaal + optionele Drive-back-up)</li>
+        </ul>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a id="play" href="https://play.google.com/store/apps/details?id=nl.urenbaas" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-ub-orange px-6 py-3 text-sm font-semibold text-ub-bg transition hover:bg-ub-orangeSoft">
+            <i data-lucide="smartphone" class="h-4 w-4"></i>
+            Download op Google Play
+          </a>
+          <a href="#functies" class="inline-flex items-center gap-2 rounded-full border border-ub-line px-6 py-3 text-sm font-semibold text-white transition hover:border-ub-orange hover:text-ub-orange">
+            Bekijk functies
+          </a>
+        </div>
+      </div>
+      <div class="fade-up-2 relative">
+        <div class="glow-ring overflow-hidden rounded-2xl border border-ub-line bg-ub-card">
+          <img src="/assets/urenbaas-promo-1.png" alt="UrenBaas schermen: overzicht en registraties" class="w-full object-cover" width="800" height="600" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain / promise -->
+  <section id="voor-wie" class="border-b border-ub-line bg-ub-card/40">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ub-orange">Voor wie</p>
+      <h2 class="mt-2 max-w-2xl font-display text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">
+        Gebouwd voor de werkvloer â€” niet voor spreadsheets.
+      </h2>
+      <p class="mt-4 max-w-2xl text-ub-muted">
+        Voor ZZPâ€™ers, monteur, hovenier, chauffeur, klusser of kleine ploeg: uren en materialen vastleggen terwijl je werkt, later strak exporteren naar je klant of boekhouder.
+      </p>
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        <div class="rounded-2xl border border-ub-line bg-ub-bg p-6">
+          <i data-lucide="zap" class="h-6 w-6 text-ub-orange"></i>
+          <h3 class="mt-4 font-display text-lg font-bold uppercase text-white">Snel</h3>
+          <p class="mt-2 text-sm text-ub-muted">Timer starten, klaar. Geen account aanmaken, geen cloudverplichting.</p>
+        </div>
+        <div class="rounded-2xl border border-ub-line bg-ub-bg p-6">
+          <i data-lucide="eye" class="h-6 w-6 text-ub-orange"></i>
+          <h3 class="mt-4 font-display text-lg font-bold uppercase text-white">Overzicht</h3>
+          <p class="mt-2 text-sm text-ub-muted">Week, maand, jaar of eigen periode. Openstaand, verstuurd, betaald in Ã©Ã©n oogopslag.</p>
+        </div>
+        <div class="rounded-2xl border border-ub-line bg-ub-bg p-6">
+          <i data-lucide="shield" class="h-6 w-6 text-ub-orange"></i>
+          <h3 class="mt-4 font-display text-lg font-bold uppercase text-white">Van jou</h3>
+          <p class="mt-2 text-sm text-ub-muted">Offline op je toestel. Back-ups lokaal of in <em>jouw</em> Google Drive â€” niet op een UrenBaas-server.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature grid -->
+  <section id="functies" class="border-b border-ub-line">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ub-orange">Functies</p>
+      <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">Alles in Ã©Ã©n app</h2>
+      <p class="mt-3 max-w-2xl text-ub-muted">Van lopende timer tot professionele PDF â€” zonder overbodige cloud-rompslomp.</p>
+
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="timer" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">Timer</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Start/stop met klant, optioneel project en omschrijving. Pauze inbouwen. Snelle aanmaak van klant of project vanaf de timer. Lokale melding terwijl de timer loopt â€” inclusief stoppen vanaf de melding.</p>
+        </article>
+
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="list" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">Registraties</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Handmatig of via de timer. Zoeken, filteren op klant/project, alleen-uren of met kosten, betaald/open. Groepering per dag, swipe-acties, bulkselectie en totalen van wat je ziet.</p>
+        </article>
+
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="bar-chart-3" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">Overzicht</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Dashboard met staafgrafiek. Week, maand, jaar of vrije periode. Uren en bedragen helder naast je registraties â€” zodat je weet wat er openstaat.</p>
+        </article>
+
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="users" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">Klanten &amp; projecten</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Klanten met contactgegevens, notities en uurtarief â€” of â€œalleen urenâ€ zonder geld. Projecten per klant, optioneel eigen tarief. Openstaand / verstuurd / betaald per klant Ã©n project.</p>
+        </article>
+
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="package" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">Materialen</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Omschrijving, aantal en stukprijs. Koppelen aan een registratie of los aan project/klant. Status meenemen in totalen en in je export.</p>
+        </article>
+
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="file-text" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">PDF &amp; CSV</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Exporteer urenoverzicht of factuur als PDF (met factuurnummer en BTW indien aan). CSV voor boekhouding/Excel. Voorbeeld vÃ³Ã³r delen. Bedrijfslogo en gegevens op je export. Daarna optioneel markeren als verstuurd of betaald.</p>
+        </article>
+
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="sliders-horizontal" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">Slimme instellingen</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Standaardtarief, BTW aan/uit, afronding op 5/10/15 minuten. Bedrijfsgegevens (naam, adres, KvK, BTW, IBAN, logo) voor professionele exports. Thema licht, donker of systeem.</p>
+        </article>
+
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="hard-drive" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">Back-up</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Lokale back-up opslaan, delen en herstellen. Optioneel Google Drive (handmatig of automatisch, dagelijks/wekelijks). Back-upherinnering op het moment dat jij wilt.</p>
+        </article>
+
+        <article class="rounded-2xl border border-ub-line bg-ub-card p-6">
+          <div class="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ub-orange/15">
+            <i data-lucide="wifi-off" class="h-5 w-5 text-ub-orange"></i>
+          </div>
+          <h3 class="font-display text-xl font-bold uppercase tracking-wide text-white">Offline-first</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ub-muted">Werken zonder bereik. Internet alleen voor Drive-back-up, app-updates of het delen van bestanden. Geen UrenBaas-login, geen verplichte cloud.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Themes -->
+  <section class="border-b border-ub-line overflow-hidden">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div class="grid items-center gap-10 lg:grid-cols-2">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ub-orange">Themaâ€™s</p>
+          <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">Licht of donker â€” jij kiest</h2>
+          <p class="mt-4 text-ub-muted">Fris overdag, rustig â€™s avonds. Wissel wanneer je wilt, of volg het systeemthema van je telefoon.</p>
+          <ul class="mt-6 space-y-3 text-sm text-ub-muted">
+            <li class="flex gap-2"><i data-lucide="sun" class="mt-0.5 h-4 w-4 shrink-0 text-ub-orange"></i> Licht thema voor heldere omgevingen</li>
+            <li class="flex gap-2"><i data-lucide="moon" class="mt-0.5 h-4 w-4 shrink-0 text-ub-orange"></i> Donker thema â€” minder vermoeiend in het donker</li>
+            <li class="flex gap-2"><i data-lucide="smartphone" class="mt-0.5 h-4 w-4 shrink-0 text-ub-orange"></i> Of gewoon â€œsysteemâ€ â€” de app volgt je telefoon</li>
+          </ul>
+        </div>
+        <div class="glow-ring overflow-hidden rounded-2xl border border-ub-line">
+          <img src="/assets/urenbaas-promo-2.png" alt="UrenBaas licht en donker thema" class="w-full" width="1000" height="700" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing / CTA -->
+  <section id="prijs" class="border-b border-ub-line bg-ub-card">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ub-orange">Prijs</p>
+        <h2 class="mt-2 font-display text-3xl font-bold uppercase tracking-wide text-white sm:text-4xl">Eerlijk model. Geen abonnement.</h2>
+        <p class="mt-4 text-ub-muted">Probeer UrenBaas <strong class="text-white">30 dagen</strong>. Bevalt het? Ontgrendel eenmalig via Google Play â€” daarna van jou, zonder maandelijkse kosten. Geen reclame, geen analytics-rommel.</p>
+      </div>
+      <div class="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
+        <div class="rounded-2xl border border-ub-line bg-ub-bg p-8 text-center">
+          <p class="font-display text-sm font-bold uppercase tracking-widest text-ub-orange">Proefperiode</p>
+          <p class="mt-3 font-display text-4xl font-bold text-white">30 dagen</p>
+          <p class="mt-3 text-sm text-ub-muted">Volledige app uitproberen. Herinneringen als de proef bijna eindigt.</p>
+        </div>
+        <div class="rounded-2xl border-2 border-ub-orange bg-ub-bg p-8 text-center">
+          <p class="font-display text-sm font-bold uppercase tracking-widest text-ub-orange">Lifetime</p>
+          <p class="mt-3 font-display text-4xl font-bold text-white">Eenmalig</p>
+          <p class="mt-3 text-sm text-ub-muted">Unlock via Google Play. Aankoop herstellen kan. Geen abonnement.</p>
+        </div>
+      </div>
+      <div class="mt-10 text-center">
+        <a href="https://play.google.com/store/apps/details?id=nl.urenbaas" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-ub-orange px-8 py-3.5 text-sm font-semibold text-ub-bg transition hover:bg-ub-orangeSoft">
+          <i data-lucide="smartphone" class="h-4 w-4"></i>
+          Haal UrenBaas op Google Play
+        </a>
+        <p class="mt-4 text-xs text-zinc-600">
+          Vragen over privacy?
+          <a href="/privacy/" class="text-ub-orange hover:underline">Lees het privacybeleid</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-ub-bg">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+      <div class="flex items-center gap-2">
+        <img src="/assets/urenbaas-logo.png" alt="" class="h-8 w-8 rounded-lg" width="32" height="32" />
+        <div>
+          <p class="font-display text-sm font-bold tracking-wide" aria-label="UrenBaas"><span class="text-ub-orange" aria-hidden="true">Uren</span><span class="text-white" aria-hidden="true">Baas</span></p>
+          <p class="text-xs text-zinc-600">Door Mollema Tech Â· Nederland</p>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-6 text-sm">
+        <a href="/" class="hover:text-ub-orange">Home</a>
+        <a href="/privacy/" class="hover:text-ub-orange">Privacybeleid</a>
+        <a href="https://play.google.com/store/apps/details?id=nl.urenbaas" target="_blank" rel="noopener noreferrer" class="hover:text-ub-orange">Google Play</a>
+        <a href="mailto:mollematech@gmail.com" class="hover:text-ub-orange">Contact</a>
+      </div>
+    </div>
+    <div class="border-t border-ub-line">
+      <p class="mx-auto max-w-6xl px-4 py-4 text-xs text-zinc-600 sm:px-6">&copy; <span id="year"></span> Mollema Tech</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    document.querySelectorAll('.menu-link').forEach((l) => l.addEventListener('click', () => menu.classList.add('hidden')));
+  </script>
+</body>
+</html>
