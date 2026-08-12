@@ -4,16 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mollema Tech — Software &amp; Apps</title>
-  <meta name="description" content="Mollema Tech ontwikkelt apps zoals UrenBaas: urenregistratie, materialen, PDF-facturen en lokale data." />
+  <meta name="description" content="Mollema Tech: constructie, elektronica en software — vaak in één project. Van idee tot iets dat je kunt gebruiken. Maker van UrenBaas." />
   <link rel="canonical" href="https://www.mollematech.nl/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="nl_NL" />
   <meta property="og:site_name" content="Mollema Tech" />
   <meta property="og:title" content="Mollema Tech — Software &amp; Apps" />
-  <meta property="og:description" content="Mollema Tech ontwikkelt apps zoals UrenBaas: urenregistratie, materialen, PDF-facturen en lokale data." />
+  <meta property="og:description" content="Mollema Tech: constructie, elektronica en software — vaak in één project. Van idee tot iets dat je kunt gebruiken." />
   <meta property="og:url" content="https://www.mollematech.nl/" />
-  <meta property="og:image" content="https://www.mollematech.nl/assets/urenbaas-logo.png" />
+  <meta property="og:image" content="https://www.mollematech.nl/assets/mollematech-logo-web.png" />
   <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/assets/favicon-mollematech.png" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/favicon-mollematech.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -23,7 +25,8 @@
       theme: {
         extend: {
           colors: {
-            ink: { DEFAULT: '#050505', soft: '#0c0c0c', card: '#121212', line: '#222' },
+            ink: { DEFAULT: '#070707', soft: '#0d0d0d', card: '#141414', line: '#262626' },
+            mt: { DEFAULT: '#B6D600', soft: '#C8E63A', deep: '#8FA800' },
             ember: { DEFAULT: '#E8890C', soft: '#F5A623' },
           },
           fontFamily: {
@@ -36,34 +39,68 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
-    .mesh {
-      background:
-        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(232, 137, 12, 0.18), transparent 55%),
-        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(232, 137, 12, 0.08), transparent 50%),
-        #050505;
+    .circuit {
+      background-color: #070707;
+      background-image:
+        radial-gradient(ellipse 75% 50% at 50% -8%, rgba(182, 214, 0, 0.22), transparent 58%),
+        radial-gradient(ellipse 40% 35% at 90% 20%, rgba(182, 214, 0, 0.08), transparent 55%),
+        url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 90 Q 180 30 360 90 T 720 90 T 1080 90 T 1440 90' fill='none' stroke='%23B6D600' stroke-opacity='0.14' stroke-width='1.5'/%3E%3Cpath d='M0 130 Q 180 70 360 130 T 720 130 T 1080 130 T 1440 130' fill='none' stroke='%23B6D600' stroke-opacity='0.08' stroke-width='1.5'/%3E%3Ccircle cx='180' cy='60' r='2.5' fill='%23B6D600' fill-opacity='0.35'/%3E%3Ccircle cx='540' cy='100' r='2' fill='%23B6D600' fill-opacity='0.25'/%3E%3Ccircle cx='900' cy='55' r='2.5' fill='%23B6D600' fill-opacity='0.3'/%3E%3C/svg%3E");
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-size: auto, auto, 1400px 220px;
+      background-position: center, center, center top 35%;
     }
-    .fade-up { animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .fade-up-2 { animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both; }
-    .fade-up-3 { animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both; }
+    .glow-mt {
+      box-shadow:
+        0 0 0 1px rgba(182, 214, 0, 0.28),
+        0 0 50px rgba(182, 214, 0, 0.18),
+        0 24px 60px rgba(0, 0, 0, 0.55);
+    }
+    .glow-ember {
+      box-shadow: 0 0 0 1px rgba(232, 137, 12, 0.28), 0 0 36px rgba(232, 137, 12, 0.14);
+    }
+    .logo-stage {
+      background:
+        radial-gradient(circle at 50% 40%, rgba(182, 214, 0, 0.12), transparent 55%),
+        linear-gradient(160deg, #101010 0%, #0a0a0a 100%);
+    }
+    .logo-frame {
+      overflow: hidden;
+      border-radius: 1.25rem;
+      background: #141414;
+    }
+    .logo-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .fade-up { animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .fade-up-2 { animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
+    .fade-up-3 { animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .float-soft { animation: floatSoft 6s ease-in-out infinite; }
   </style>
 </head>
 <body class="bg-ink text-zinc-400 font-sans antialiased">
-  <header class="sticky top-0 z-50 border-b border-ink-line/80 bg-ink/80 backdrop-blur-xl">
-    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-      <a href="/" class="font-display text-lg font-semibold tracking-tight text-white sm:text-xl">
-        Mollema<span class="text-ember">Tech</span>
+  <header class="sticky top-0 z-50 border-b border-ink-line/80 bg-ink/85 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
+      <a href="/" class="font-display text-xl font-semibold tracking-tight text-white">
+        Mollema<span class="text-mt">Tech</span>
       </a>
-      <nav class="hidden items-center gap-8 text-sm font-medium md:flex">
+      <nav class="hidden items-center gap-7 text-sm font-medium md:flex">
         <a href="/" class="text-white">Home</a>
         <a href="/urenbaas/" class="text-zinc-400 transition hover:text-white">UrenBaas</a>
+        <a href="#aanpak" class="text-zinc-400 transition hover:text-white">Werkvelden</a>
         <a href="#contact" class="text-zinc-400 transition hover:text-white">Contact</a>
         <a href="/privacy/" class="text-zinc-400 transition hover:text-white">Privacy</a>
       </nav>
-      <button id="menu-btn" type="button" class="rounded-lg border border-ink-line p-2 text-ember md:hidden" aria-label="Menu">
+      <button id="menu-btn" type="button" class="rounded-lg border border-ink-line p-2 text-mt md:hidden" aria-label="Menu">
         <i data-lucide="menu" class="h-5 w-5"></i>
       </button>
     </div>
@@ -71,87 +108,190 @@
       <nav class="flex flex-col gap-1 px-4 py-3 text-sm font-medium">
         <a href="/" class="py-2 text-white">Home</a>
         <a href="/urenbaas/" class="py-2">UrenBaas</a>
+        <a href="#aanpak" class="menu-link py-2">Werkvelden</a>
         <a href="#contact" class="menu-link py-2">Contact</a>
         <a href="/privacy/" class="py-2">Privacy</a>
       </nav>
     </div>
   </header>
 
-  <section class="mesh relative overflow-hidden border-b border-ink-line">
-    <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32 lg:py-40">
-      <p class="fade-up text-xs font-medium uppercase tracking-[0.2em] text-ember">Nederland · Software</p>
-      <h1 class="fade-up-2 mt-5 max-w-3xl font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-        Mollema Tech
-      </h1>
-      <p class="fade-up-3 mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">
-        Apps en software die gewoon werken. We bouwen tools voor professionals — te beginnen met UrenBaas.
-      </p>
-      <div class="fade-up-3 mt-10 flex flex-wrap gap-3">
-        <a href="/urenbaas/" class="inline-flex items-center gap-2 rounded-full bg-ember px-6 py-3 text-sm font-semibold text-ink transition hover:bg-ember-soft">
-          Bekijk UrenBaas
-          <i data-lucide="arrow-right" class="h-4 w-4"></i>
-        </a>
-        <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-ink-line px-6 py-3 text-sm font-semibold text-white transition hover:border-zinc-500">
-          Contact
-        </a>
+  <section class="circuit border-b border-ink-line">
+    <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:py-24">
+      <div>
+        <p class="fade-up text-xs font-semibold uppercase tracking-[0.2em] text-mt">Nederland · Techniek</p>
+        <h1 class="fade-up-2 mt-4 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.15rem]">
+          Techniek bouwen die gewoon werkt.
+        </h1>
+        <p class="fade-up-3 mt-5 max-w-xl text-base leading-relaxed text-zinc-400">
+          Constructie, elektronica en software — vaak in één project. Van idee tot iets dat je kunt gebruiken.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#aanpak" class="inline-flex items-center gap-2 rounded-full bg-mt px-6 py-3 text-sm font-semibold text-ink transition hover:bg-mt-soft">
+            Waar we mee bezig zijn
+            <i data-lucide="arrow-down" class="h-4 w-4"></i>
+          </a>
+          <a href="#product" class="inline-flex items-center gap-2 rounded-full border border-ink-line px-6 py-3 text-sm font-semibold text-white transition hover:border-ember hover:text-ember">
+            App: UrenBaas
+          </a>
+        </div>
+      </div>
+
+      <div class="fade-up-2 relative">
+        <div class="pointer-events-none absolute -inset-6 rounded-[2rem] bg-mt/10 blur-3xl"></div>
+        <div class="logo-stage relative overflow-hidden rounded-[1.75rem] border border-ink-line glow-mt">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mt/60 to-transparent"></div>
+          <div class="flex items-center justify-center px-6 py-8 sm:px-8 sm:py-10">
+            <div class="logo-frame float-soft w-full max-w-[300px] sm:max-w-[320px]">
+              <img
+                src="/assets/mollematech-logo-web.png"
+                alt="Mollema Tech logo"
+                width="331"
+                height="321"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="projecten" class="border-b border-ink-line">
+  <section id="aanpak" class="border-b border-ink-line">
     <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-      <div class="mb-12">
-        <p class="text-xs font-medium uppercase tracking-[0.2em] text-ember">Product</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">UrenBaas</h2>
-        <p class="mt-3 max-w-2xl text-zinc-400">Uren, materialen, klanten en PDF-facturen — offline-first, met optionele Google Drive-back-up.</p>
+      <div class="max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-mt">Werkvelden</p>
+        <h2 class="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Praktische techniek, breed inzetbaar.
+        </h2>
+        <p class="mt-4 text-zinc-400 leading-relaxed">
+          Constructies maken, elektronica aansturen, software schrijven — en dat bij voorkeur in samenhang.
+        </p>
       </div>
 
-      <a href="/urenbaas/" class="group block overflow-hidden rounded-2xl border border-ink-line bg-ink-card transition hover:border-ember/40">
+      <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-2xl border border-ink-line bg-ink-card p-6">
+          <i data-lucide="cog" class="h-6 w-6 text-mt"></i>
+          <h3 class="mt-4 font-display text-lg font-bold text-white">Werktuigbouw</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-400">Constructies, aandrijvingen, maatwerk. Ontwerpen, maken en verbeteren.</p>
+        </article>
+        <article class="rounded-2xl border border-ink-line bg-ink-card p-6">
+          <i data-lucide="cpu" class="h-6 w-6 text-mt"></i>
+          <h3 class="mt-4 font-display text-lg font-bold text-white">Elektronica</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-400">ESP’s, sensoren, motorsturing, Modbus. Systemen begrijpen en zelf aansturen.</p>
+        </article>
+        <article class="rounded-2xl border border-ink-line bg-ink-card p-6">
+          <i data-lucide="code-2" class="h-6 w-6 text-mt"></i>
+          <h3 class="mt-4 font-display text-lg font-bold text-white">Software</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-400">Apps en tools die techniek of werk eenvoudiger maken.</p>
+        </article>
+        <article class="rounded-2xl border border-ink-line bg-ink-card p-6">
+          <i data-lucide="home" class="h-6 w-6 text-mt"></i>
+          <h3 class="mt-4 font-display text-lg font-bold text-white">Domotica</h3>
+          <p class="mt-2 text-sm leading-relaxed text-zinc-400">Homey, Zigbee, ESPHome. Hardware en software tot één bruikbaar systeem.</p>
+        </article>
+        <article class="rounded-2xl border border-ink-line bg-ink-card p-6 sm:col-span-2 lg:col-span-2">
+          <i data-lucide="truck" class="h-6 w-6 text-mt"></i>
+          <h3 class="mt-4 font-display text-lg font-bold text-white">Automotive &amp; 4×4</h3>
+          <p class="mt-2 max-w-xl text-sm leading-relaxed text-zinc-400">Voertuigen, modificaties en praktische offroad-oplossingen.</p>
+        </article>
+      </div>
+
+      <p class="mt-10 max-w-2xl text-sm leading-relaxed text-zinc-500">
+        Vaak zit de kracht juist in de combinatie: mechanica, elektronica en software in één oplossing.
+      </p>
+    </div>
+  </section>
+
+  <section id="product" class="border-b border-ink-line bg-ink-soft/40">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div class="mb-10 max-w-2xl">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-ember">App</p>
+        <h2 class="mt-2 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">UrenBaas</h2>
+        <p class="mt-3 text-zinc-400">
+          Android-app voor uren, materialen en facturen — eenvoudig, offline-first, zonder overbodige poespas.
+        </p>
+      </div>
+
+      <a href="/urenbaas/" class="group block overflow-hidden rounded-2xl border border-ink-line bg-ink-card transition hover:border-ember/50">
         <div class="grid lg:grid-cols-2">
-          <div class="flex flex-col justify-center p-8 sm:p-10">
+          <div class="flex flex-col justify-center p-8 sm:p-10 lg:p-12">
             <div class="mb-5 flex items-center gap-3">
-              <img src="/assets/urenbaas-logo.png" alt="UrenBaas logo" class="h-12 w-12 rounded-xl object-contain" width="48" height="48" />
-              <span class="font-display text-2xl font-semibold tracking-tight" aria-label="UrenBaas"><span class="text-ember" aria-hidden="true">Uren</span><span class="text-white" aria-hidden="true">Baas</span></span>
+              <img src="/assets/urenbaas-logo.png" alt="" class="h-12 w-12 rounded-xl object-contain glow-ember" width="48" height="48" />
+              <span class="font-display text-2xl font-bold tracking-tight" aria-label="UrenBaas">
+                <span class="text-ember" aria-hidden="true">Uren</span><span class="text-white" aria-hidden="true">Baas</span>
+              </span>
             </div>
-            <p class="text-zinc-400 leading-relaxed">
-              Registreer je uren in seconden. Overzicht van openstaande bedragen, projecten en professionele PDF-facturen — plus veilige back-ups in je eigen Drive.
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-ember">Android · Offline-first · Geen ads</p>
+            <p class="mt-4 text-lg leading-relaxed text-zinc-300">
+              Timer, klanten, materialen, PDF- en CSV-export. Zonder abonnementengedoe en zonder koppeling aan een compleet boekhoudprogramma.
             </p>
+            <ul class="mt-6 space-y-2 text-sm text-zinc-400">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-ember"></i> 30 dagen uitproberen</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-ember"></i> Daarna eenmalig ontgrendelen</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="h-4 w-4 text-ember"></i> Data lokaal, optioneel jouw Drive</li>
+            </ul>
             <span class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-ember">
-              Meer over de app
+              Meer over UrenBaas
               <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-1"></i>
             </span>
           </div>
-          <div class="relative min-h-[240px] border-t border-ink-line bg-black lg:min-h-[320px] lg:border-l lg:border-t-0">
+          <div class="relative min-h-[280px] border-t border-ink-line bg-black lg:min-h-full lg:border-l lg:border-t-0">
             <img
               src="/assets/urenbaas-promo-2.png"
               alt="UrenBaas app in licht en donker thema"
-              class="absolute inset-0 h-full w-full object-cover object-center opacity-90 transition group-hover:opacity-100"
+              class="absolute inset-0 h-full w-full object-cover object-center opacity-90 transition duration-500 group-hover:opacity-100 group-hover:scale-[1.02]"
             />
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-ink-card/30 lg:via-transparent"></div>
           </div>
         </div>
       </a>
     </div>
   </section>
 
-  <section id="contact" class="border-b border-ink-line bg-ink-soft">
-    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-      <p class="text-xs font-medium uppercase tracking-[0.2em] text-ember">Contact</p>
-      <h2 class="mt-3 font-display text-3xl font-semibold text-white">Vragen?</h2>
-      <p class="mt-3 max-w-lg text-zinc-400">Mail ons over UrenBaas of privacy. We reageren zo snel mogelijk.</p>
-      <a href="mailto:mollematech@gmail.com" class="mt-8 inline-flex items-center gap-2 rounded-full border border-ink-line bg-ink px-5 py-3 text-sm font-medium text-white transition hover:border-ember hover:text-ember">
-        <i data-lucide="mail" class="h-4 w-4 text-ember"></i>
-        mollematech@gmail.com
-      </a>
+  <section id="contact" class="border-b border-ink-line">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <div class="overflow-hidden rounded-2xl border border-ink-line bg-ink-card">
+        <div class="grid lg:grid-cols-[1.2fr_0.8fr]">
+          <div class="p-8 sm:p-10 lg:p-12">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-mt">Contact</p>
+            <h2 class="mt-2 font-display text-3xl font-bold text-white sm:text-4xl">Contact</h2>
+            <p class="mt-4 max-w-lg text-zinc-400">Vragen over techniek, een project of UrenBaas? Stuur een mail.</p>
+            <a href="mailto:mollematech@gmail.com" class="mt-8 inline-flex items-center gap-2 rounded-full bg-mt px-6 py-3 text-sm font-semibold text-ink transition hover:bg-mt-soft">
+              <i data-lucide="mail" class="h-4 w-4"></i>
+              mollematech@gmail.com
+            </a>
+          </div>
+          <div class="flex flex-col justify-center gap-4 border-t border-ink-line bg-ink-soft p-8 sm:p-10 lg:border-l lg:border-t-0">
+            <div class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="mt-0.5 h-4 w-4 shrink-0 text-mt"></i>
+              <div>
+                <p class="text-sm font-medium text-white">Nederland</p>
+                <p class="text-sm text-zinc-500">Techniek &amp; software</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i data-lucide="shield" class="mt-0.5 h-4 w-4 shrink-0 text-mt"></i>
+              <div>
+                <p class="text-sm font-medium text-white">Privacy</p>
+                <p class="text-sm text-zinc-500"><a href="/privacy/" class="underline decoration-ink-line underline-offset-2 hover:text-mt">Privacybeleid</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer class="bg-ink">
     <div class="mx-auto flex max-w-6xl flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6">
-      <p class="font-display text-sm font-semibold text-white">Mollema<span class="text-ember">Tech</span></p>
+      <div>
+        <p class="font-display text-sm font-semibold text-white">Mollema<span class="text-mt">Tech</span></p>
+        <p class="mt-1 text-[11px] uppercase tracking-[0.18em] text-zinc-600">Engineer · Build · Automate</p>
+      </div>
       <div class="flex flex-wrap gap-6 text-sm">
-        <a href="/urenbaas/" class="hover:text-ember">UrenBaas</a>
-        <a href="/privacy/" class="hover:text-ember">Privacybeleid</a>
-        <a href="mailto:mollematech@gmail.com" class="hover:text-ember">Contact</a>
+        <a href="/urenbaas/" class="transition hover:text-ember">UrenBaas</a>
+        <a href="/privacy/" class="transition hover:text-mt">Privacybeleid</a>
+        <a href="mailto:mollematech@gmail.com" class="transition hover:text-mt">Contact</a>
       </div>
     </div>
     <div class="border-t border-ink-line">
