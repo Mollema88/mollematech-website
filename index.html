@@ -12,7 +12,7 @@
   <meta property="og:title" content="Mollema Tech — Software &amp; Apps" />
   <meta property="og:description" content="Mollema Tech: constructie, elektronica en software — vaak in één project. Van idee tot iets dat je kunt gebruiken." />
   <meta property="og:url" content="https://www.mollematech.nl/" />
-  <meta property="og:image" content="https://www.mollematech.nl/assets/mollematech-logo-web.png" />
+  <meta property="og:image" content="https://www.mollematech.nl/assets/mollematech-logo-1024.png" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" href="/assets/favicon-mollematech.png" type="image/png" />
   <link rel="apple-touch-icon" href="/assets/favicon-mollematech.png" />
@@ -66,25 +66,32 @@
     .logo-frame {
       overflow: hidden;
       border-radius: 1.25rem;
-      background: #141414;
+      background: #f2f2f2;
+      /* vaste CSS-breedte (niet groter); bron blijft 1024px voor scherpte op retina */
+      width: min(100%, 320px);
     }
     .logo-frame img {
       display: block;
       width: 100%;
       height: auto;
+      /* geen transforms op het logo — die maken browsers soft/blurry */
+      transform: none;
+      image-rendering: auto;
     }
     .fade-up { animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both; }
     .fade-up-2 { animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both; }
     .fade-up-3 { animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; }
+    .fade-in {
+      animation: fadeIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+    }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes floatSoft {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    .float-soft { animation: floatSoft 6s ease-in-out infinite; }
   </style>
 </head>
 <body class="bg-ink text-zinc-400 font-sans antialiased">
@@ -136,18 +143,21 @@
         </div>
       </div>
 
-      <div class="fade-up-2 relative">
+      <div class="fade-in relative">
         <div class="pointer-events-none absolute -inset-6 rounded-[2rem] bg-mt/10 blur-3xl"></div>
         <div class="logo-stage relative overflow-hidden rounded-[1.75rem] border border-ink-line glow-mt">
           <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-mt/60 to-transparent"></div>
           <div class="flex items-center justify-center px-6 py-8 sm:px-8 sm:py-10">
-            <div class="logo-frame float-soft w-full max-w-[300px] sm:max-w-[320px]">
+            <div class="logo-frame">
               <img
-                src="/assets/mollematech-logo-web.png"
+                src="/assets/mollematech-logo-1024.png"
+                srcset="/assets/mollematech-logo-1024.png 1024w"
+                sizes="320px"
                 alt="Mollema Tech logo"
                 width="1024"
                 height="1024"
                 decoding="async"
+                fetchpriority="high"
               />
             </div>
           </div>
